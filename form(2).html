@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 심화 수업</title>
+</head>
+<body>
+    <!-- 색 선택: color (기본값: hex) -->
+    <label for="backCol">배경색</label>
+    <input type="color" id="backCol" name="backCol" value="#e66465">
+    <label for="fontCol">글꼴색</label>
+    <input type="color" id="fontCol" name="fontCol" value="#52504c">
+    <!-- 숫자 데이터: number, range -->
+    <br>
+    <form>
+        <!-- 제출할때 유효한 숫자 정보만 입력되도록 규제 -->
+    <input type="number" name="user_number" min="0" max="10" step="2">
+    <input type="range" name="user_range" min="0" max="10" step="2">
+    <input type="submit" value="제출">
+    </form>
+    <!-- textarea: 여러줄의 문장 입력 -->
+    <textarea name="user_textarea" id="user_textarea" cols="20" rows="10"
+    style="resize: none;">
+    </textarea>
+
+    <h1>납품 대장</h1>
+    <form method="post" name="supplyFrm" action="#">
+        <fieldset>
+            <legend>납품자 정보</legend>
+                <label for="us_name">1. 납품자명 : </label>
+                <input type="text" id="us_name" name="us_name" placeholder="name">
+                <br>
+                <label for="us_email">2. email : </label>
+                <input type="email" id="us_email" name="us_email" placeholder="abc@naver.com">
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>납품정보</legend>
+                <ul>
+                    <li>
+                    <label for="pd_name">상품명 :</label>
+                    <input type="text" name="pd_name" id="pd_name">
+                    </li>
+                    <li>
+                    <label for="pd_amount">납품수량 : </label>
+                    <input type="number" name="pd_amount" id="pd_amount" min="100" placeholder="최소 100">
+                    </li>
+                    <li>
+                    <label for="pd_lvl">납품등급 : </label>
+                    <input type="range" name="pd_lvl" id="pd_lvl" value="5" min="1" max="10">
+                    </li>
+                    <li>
+                    <label for="etc">기타사항 : </label>
+                    <textarea name="etc" id="etc"></textarea>
+                    </li>
+                </ul>
+        </fieldset>
+    <input type="submit" value="send message">
+    <input type="reset" value="reset">
+    </form>
+<!-- 날짜 정보 -->
+<!-- date time picker api -->
+<input type="date" name="trip_start" id="trip_start" value="2024-06-12" min="2024-04-17" max="2024-10-18">
+<input type="datetime-local" id="meeting_time" name="meeting_time" value="2024-06-12T10:43" min="2024-06-12T09:00" max="2024-06-12T17:50">
+<input type="month" id="start" name="start" value="2023-10">
+<input type="week" id="camp_week" name="camp_week" value="2024-W19">
+<input type="time" id="now" name="now" value="17:10">
+<br>
+
+<!-- checkbox와 radio: 여러 선택자 중에서 일부 선택 -->
+<!-- checkbox: 여러개 선택 -->
+<input type="checkbox" id="jja" name="lunch" value="1">
+<label for="jja">짜장면</label>
+<input type="checkbox" id="tang" name="lunch" value="2">
+<label for="tang">탕수육</label>
+<br>
+
+<!-- radio: 하나만 선택 -->
+<input type="radio" id="seoul" name="addr" checked="checked">
+<label for="seoul">서울</label>
+<input type="radio" id="incheon" name="addr">
+<label for="incheon">인천</label>
+<br>
+
+<!-- select: 여러 선택지 중에서 일부 선택 -->
+<select id="user_select" name="user_select" size="3" multiple>
+    <option value="0">선택하기</option>
+    <option value="1">다이제</option>
+    <option value="2">바나나킥</option>
+    <option value="3">콘치</option>
+</select>
+<br>
+<!-- progress: 진행 상황 -->
+<progress value="7" max="10"></progress>
+<br>
+
+<!-- button: input type submit과 동일 -->
+<form method="get" name="testFrm" action="#">
+<input type="text" required><br>
+<button>버튼1</button>
+<button type="button">버튼2</button>
+<button type="submit">버튼3</button>
+<button type="reset">버튼4</button>
+</form>
+<br>
+
+<h3>피자 주문하기</h3>
+<form method="post" name="finalFrm" action="#">
+<fieldset>
+    <legend>고객정보</legend>
+    <label for="final_name">고객명 : </label>
+    <input type="text" name="final_name" id="final_name">
+    <br>
+    <label for="final_phone">전화번호 : </label>
+    <input type="text" name="final_phone" id="final_phone">
+    <br>
+    <label for="final_email">이메일 : </label>
+    <input type="email" name="final_email" id="final_email">
+</fieldset>
+
+<fieldset>
+    <legend>피자 사이즈</legend>
+    <input type="radio" name="size" id="small" value="1">
+    <label for="small">Small</label>
+    <br>
+    <input type="radio" name="size" id="medium" value="2">
+    <label for="medium">Medium</label>
+    <br>
+    <input type="radio" name="size" id="large" value="3">
+    <label for="large">Large</label>
+</fieldset>
+
+<fieldset>
+    <legend>토핑 선택</legend>
+    <input type="checkbox" id="shrimp" name="topping">
+    <label for="shrimp">새우</label>
+    <br>
+    <input type="checkbox" id="sweetpotato" name="topping">
+    <label for="sweetpotato">고구마</label>
+    <br>
+    <input type="checkbox" id="potato" name="topping">
+    <label for="potato">감자</label>
+    <br>
+    <input type="checkbox" id="pineapple" name="topping">
+    <label for="pineapple">파인애플</label>
+</fieldset>
+<br>
+<label for="delivery_time">희망 배송 시간 : </label>
+<input type="time" id="delivery_time" name="delivery_time">
+<br><br>
+<button type="submit">주문하기</button>
+</form>
+
+</body>
+</html>
